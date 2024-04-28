@@ -15,9 +15,9 @@ spec:
     spec:
       containers:
         - name: nginx
-          image: nginx
-          command: ["/usr/bin/echo"]
-          args: ["<h1>App 1</h1>", ">", "/usr/share/nginx/html/index.html"]
+          image: iot-p2-base-image
+          imagePullPolicy: Never
+          command: ["echo", "'test'", ">", "/var/www/html/index.nginx-debian.html"]
           ports:
             - containerPort: 80
 ---
