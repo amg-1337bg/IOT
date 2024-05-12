@@ -24,9 +24,6 @@ kind: Service
 metadata:
   name: app3-service
 spec:
-  # externalIPs:
-  #   - 192.168.56.110
-  # type: LoadBalancer
   selector:
     app: app3
   ports:

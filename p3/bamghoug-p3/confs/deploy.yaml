@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bamghoug-iot-p3
+  labels:
+    app: bamghoug-iot-p3
+spec:
+  selector:
+    matchLabels:
+      app: bamghoug-iot-p3
+  template:
+    metadata:
+      labels:
+        app: bamghoug-iot-p3
+    spec:
+      containers:
+      - name: iot-p3
+        image: bamghoug/iot-p3:v1
+        ports:
+        - containerPort: 80
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: iot-p3-svc
+spec:
+  selector:
+    app: bamghoug-iot-p3
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
